@@ -64,6 +64,71 @@ all
 
 print(ints.compactMap { Int($0) }.reduce(0, +))
 
+let episodes = [
+    "The fail of sentinal values": 100,
+    "Common optional operation": 150,
+    "Nested optionals": 180,
+    "Map and flatMap": 220,
+]
+
+episodes.keys
+    .filter { episodes[$0]! > 100 }
+    .sorted()
+
+episodes.filter { (_, duration) in duration > 100 }
+    .map { (title, _) in title }
+    .sorted()
+
+
+infix operator !!
+infix operator !?
+
+func !!<T>(optional: T?, errorMsg: @autoclosure () -> String) -> T {
+    if let value = optional { return value }
+    fatalError(errorMsg())
+}
+
+
+
+//func !?<T: ExpressibleByStringLiteral>(optional: T?, nilDefault: @autoclosure () -> (errorMsg: String, value: T)) -> T {
+//    assert(optional != nil, nilDefault().errorMsg)
+//    return optional ?? nilDefault().value
+//
+//}
+//
+var record = ["name": "11"]
+//record["type"] !? ("Do not have a key named type", "Free"）
+
+func !?<T: ExpressibleByStringLiteral>(
+    optional: T?,
+    nilDefault: @autoclosure () -> (errorMsg: String, value: T)) -> T {
+    
+    assert(optional != nil, nilDefault().errorMsg)
+    return optional ?? nilDefault().value
+}
+
+func !?(optional: Void?, errorMsg: @autoclosure () -> String) {
+    assert(optional != nil, errorMsg())
+}
+
+//record["type"]?
+//    .write(" account")
+//    !? "Do not have a key named type"
+
+//record["type"] !? ("Do not have a key named type", "Free")
+
+var eleven: Int! = 11
+type(of: eleven)
+
+var doubleValue = 4
+func double(_ i: inout Int) {
+    i = i * 2
+}
+
+double(&eleven)
+
+eleven
+
 
 
 
