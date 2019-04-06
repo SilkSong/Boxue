@@ -48,16 +48,17 @@ class Point2D {
         self.y = y
     }
     
+    
     init?(xy: Double) {
         guard xy > 0 else { return nil }
         self.x = xy
         self.y = xy
     }
-
+    
     convenience init(at: (Double, Double)) {
         self.init(x: at.0, y: at.1)
     }
-
+    
     convenience init?(at: (String, String)) {
         guard let x = Double(at.0), let y = Double(at.1) else {
             return nil
@@ -66,12 +67,24 @@ class Point2D {
     }
 }
 
+
+let origin = Point2D()
+
+let point11 = Point2D(x: 11, y: 11)
+let point22 = Point2D(at: (2.0, 2.0))
+let point44 = Point2D(at: ("4.0", "4.0"))
+
+
 class Point3D: Point2D {
     var z: Double = 0
     
     init(x: Double = 0, y: Double = 0, z: Double = 0) {
+        //Phase 1
         self.z = z
         super.init(x: x, y: y)
+        
+        //Phase 2
+        self.initXYZ(x: x, y: y, z: z)
     }
     
     override init(x: Double, y: Double) {
@@ -81,17 +94,23 @@ class Point3D: Point2D {
     
     override init?(xy: Double) {
         if xy <= 0 { return nil }
-        
         self.z = xy
         super.init(x: xy, y: xy)
+    }
+    
+    func initXYZ(x: Double, y: Double, z: Double) {
+        self.x = round(x)
+        self.y = round(y)
+        self.z = round(z)
     }
 }
 
 let origin3D = Point3D()
-let point11 = Point3D(x: 1, y: 1)
-let point22 = Point3D(xy: 2)
+let point111 = Point3D(x: 1, y: 1)
+let point222 = Point3D(xy: 2)
+let point333 = Point3D(at: (3,3))
+let point444 = Point3D(at: ("4","4"))
 
-let point33 = Point3D(at: (3, 3))
-let point44 = Point3D(at: ("4", "4"))
+
 
 
