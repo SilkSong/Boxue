@@ -60,14 +60,22 @@
                                 <rect key="frame" x="153" y="579" width="69" height="30"/>
                                 <state key="normal" title="Download"/>
                                 <connections>
-                                    <action selector="downloadImagesWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I1Q-WG-gxf"/>
+                                    <action selector="downloadInMainThreadWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hqu-4D-Ura"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2X-4V-4FD">
                                 <rect key="frame" x="244.5" y="579" width="36" height="30"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
-                                    <action selector="clearDownloadWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fmz-uR-Kyg"/>
+                                    <action selector="clearDownloadWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cif-h4-8uc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aL7-g0-pOs">
+                                <rect key="frame" x="299" y="579" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xa-ho-g1B"/>
                                 </connections>
                             </button>
                         </subviews>
