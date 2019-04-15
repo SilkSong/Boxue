@@ -100,3 +100,4 @@ extension Array {
 print(animals.myFlatMap { animal in
     ids.map { id in (animal, id)}
 })
+
