@@ -107,3 +107,98 @@ extension Array {
 
 print(fibonacci.myMap2 { $0 * $0 })
 print(fibonacci.myFilter2 { $0 % 2 == 0})
+
+
+enum RecordType {
+    case bool(Bool)
+    case number(Int)
+    case text(String)
+}
+
+let defaultRecord: [String: RecordType] = [
+    "uid": .number(0),
+    "exp": .number(100),
+    "favourite": .bool(false),
+    "title": .text("")
+]
+
+var template = defaultRecord
+var record11Patch: [String: RecordType] = [
+    "uid": .number(11),
+    "title": .text("Common dictionary extensions")
+]
+
+// How can we do this?
+// template.merge(record11Patch)
+// [
+//    uid: .number(11),
+//    "exp": .number(100),
+//    "favourite": .bool(false),
+//    "title": .text("Common dictionary extensions")
+// ]
+
+extension Dictionary {
+    mutating func merge<S: Sequence>(_ sequence: S) where S.Iterator.Element == (key: Key, value: Value) {
+        sequence.forEach { self[$0] = $1 }
+    }
+}
+
+ template.merge(record11Patch)
+
+let record11: [String: RecordType] = [
+    "uid": .number(11),
+    "title": .text("Common dictionary extensions")
+ ]
+
+
+struct Account {
+    var alias: String
+    var type: Int
+    var createdAt: Date
+}
+
+let account11 = Account(alias: "11",
+                        type: 1, createdAt  : Date())
+
+
+extension Account: Hashable {
+    static func == (lhs: Account, rhs: Account) -> Bool {
+        return lhs.alias == rhs.alias &&
+            lhs.type == rhs.type &&
+            lhs.createdAt == rhs.createdAt
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(alias)
+        hasher.combine(createdAt)
+        hasher.combine(type)
+    }
+}
+
+let data:[Account: Int] = [ account11: 1000 ]
+
+extension Sequence where Iterator.Element: Hashable {
+    func unique() -> [Iterator.Element] {
+        var result: Set<Iterator.Element> = []
+        
+        return filter {
+            if result.contains($0) {
+                return false
+            } else {
+                result.insert($0)
+                return true
+            }
+        }
+    }
+}
+
+[1, 1, 2, 2, 3, 3, 4, 4].unique() // [1, 2, 3, 4]
+let hw = "Hello world!"
+
+// CharacterSet
+let numbers = CharacterSet(charactersIn: "123456789")
+let letters = CharacterSet.letters
+
+// Actions
+hw.rangeOfCharacter(from: numbers) // nil
+print(hw.rangeOfCharacter(from: letters)) //
