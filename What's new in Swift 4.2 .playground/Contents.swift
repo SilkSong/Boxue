@@ -58,3 +58,22 @@ func switchDemo(_ input: String!) -> String {
 }
 
 
+
+
+enum Seasons: String {
+    case spring = "Spring", summer = "Summer", autumn = "Autumn", winter = "Winter"
+}
+
+enum SeasonType {
+    case equinox
+    case solstice
+}
+
+let seasons = [Seasons.spring, .summer, .autumn, .winter]
+for (index, season) in seasons.enumerated() {
+    let seasonType = index % 2 == 0 ? SeasonType.equinox : .solstice
+    print("\(season.rawValue) \(seasonType).")
+
+}
+
+let credentials: (usermame: String?, password: String?) = ("Cosmin", nil)
