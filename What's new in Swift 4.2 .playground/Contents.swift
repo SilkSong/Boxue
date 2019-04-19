@@ -69,11 +69,43 @@ enum SeasonType {
     case solstice
 }
 
-let seasons = [Seasons.spring, .summer, .autumn, .winter]
-for (index, season) in seasons.enumerated() {
-    let seasonType = index % 2 == 0 ? SeasonType.equinox : .solstice
-    print("\(season.rawValue) \(seasonType).")
+//let seasons = [Seasons.spring, .summer, .autumn, .winter]
+//for (index, season) in seasons.enumerated() {
+//    let seasonType = index % 2 == 0 ? SeasonType.equinox : .solstice
+//    print("\(season.rawValue) \(seasonType).")
+//
+//}
+//
+//let credentials: (usermame: String?, password: String?) = ("Cosmin", nil)
+
+
+class Demo {
+    @objc var name: String?
+    @objc dynamic var address: String?
+    
+    @objc func myPrint() {
+        print("Demo")
+    }
+}
+
+var count: UInt32 = 0
+let demo = Demo()
+let list = class_copyPropertyList(object_getClass(demo), &count)
+
+for idx in 0..<numericCast(count) {
+    if let item = list?[idx],
+        let name = String(utf8String: property_getName(item)) {
+        
+        print("Property: \(name)")
+    }
 
 }
 
-let credentials: (usermame: String?, password: String?) = ("Cosmin", nil)
+var fCount: UInt32 = 0
+let funcList = class_copyMethodList(object_getClass(demo), &fCount)
+for idx in 0..<numericCast(fCount) {
+    if let item = funcList?[idx] {
+        let name = NSStringFromSelector(method_getName(item))
+        print("Method: \(name)")
+    }
+}
