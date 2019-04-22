@@ -39,20 +39,20 @@ class ViewController: UIViewController {
     }
     
     
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//
-//        if FileManager.default.fileExists(atPath: self.episodesDirUrl.path) {
-//            try! FileManager.default
-//                .createDirectory(at: self.episodesDirUrl,
-//                                withIntermediateDirectories: true,
-//                                attributes: nil)
-//        } else {
-//            print("File path not available")
-//        }
-//    }
-//
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+
+        if FileManager.default.fileExists(atPath: self.episodesDirUrl.path) {
+            try! FileManager.default
+                .createDirectory(at: self.episodesDirUrl,
+                                withIntermediateDirectories: true,
+                                attributes: nil)
+        } else {
+            print("File path not available")
+        }
+    }
+
 }
 
 //extension ViewController {
