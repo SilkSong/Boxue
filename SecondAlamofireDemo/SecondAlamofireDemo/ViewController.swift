@@ -18,15 +18,19 @@ enum DownloadStatus {
 
 class ViewController: UIViewController {
     
+    var episodeUrl: URL?
     var currentStatus = DownloadStatus.NotStarted
+    var request: Alamofire.DownloadRequest?
     
     @IBOutlet weak var downloadUrl: UITextField!
     @IBOutlet weak var beginBtn: UIButton!
     @IBOutlet weak var suspendOrResumeBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var uploadBtn: UIButton!
     @IBOutlet weak var downloadProgress: UIProgressView!
     @IBOutlet weak var dowloadProgressLabel: UILabel!
     
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -81,38 +85,51 @@ extension ViewController {
         
         //TODO: Add begin downloading code here
         
-        let destination: DownloadRequest.DownloadFileDestination = { temporaryURL, response in
-            print("temporaryURL is \(temporaryURL)")
-
+        let destination: DownloadRequest.DownloadFileDestination = { _, response in
+            
             let pathComponent = response.suggestedFilename
-            print("suggestedFilename is \(String(describing: pathComponent))")
             let episodeUrl =
                 self.episodesDirectoryUrl.appendingPathComponent(pathComponent!)
             print("episodeUrl.path is \(episodeUrl.path)")
+            
 
-            let fm = FileManager.default
-            if fm.fileExists(atPath: episodeUrl.path) {
-                print("Clear the previous existing file.")
-                try! fm.removeItem(at: episodeUrl)
-            }
-
+            self.episodeUrl = episodeUrl
             return (episodeUrl, [.removePreviousFile, .createIntermediateDirectories])
         }
 
         if let resUrl = self.downloadUrl.text {
+            self.request = Alamofire.download(resUrl, to: destination)
             Alamofire.download(resUrl, to: destination)
                 .downloadProgress{ progress  in
-                    // This closure is NOT called on the main queue for performance
-                    // reasons. To update your ui, dispatch to the main queue.
                     DispatchQueue.main.async {
                         self.downloadProgress.progress = Float(progress.fractionCompleted)
-                        self.dowloadProgressLabel.text = "\(Float(progress.fractionCompleted))"
+                        self.dowloadProgressLabel.text = "Progress: \(Float(progress.fractionCompleted))"
                     }
             }
-            .response { request in
-                    if let error = request.error {
+            .responseData { response in
+                    if let error = response.result.error {
                         print("Download error: \(error.localizedDescription)")
+
+                        if let data = response.resumeData {
+                            print("Resume data exists")
+                            self.displayNetworkAlert(errorMessage: error.localizedDescription, data: data, destination: destination)
+                        } else {
+                            print("Resume data is nil")
+                            self.displayNetworkAlert(errorMessage: error.localizedDescription)
+                        }
                     }
+                    else {
+                        let alert = UIAlertController(title: "Success", message: "Download finished successfully!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                            print("Finish downloading...")
+
+                            self.restoreDownloadUserInterface()
+                            
+                        }))
+                        self.present(alert,
+                                     animated: true, completion: nil)
+
+                }
             }
         }
         
@@ -133,9 +150,10 @@ extension ViewController {
             print("Suspend downloading...")
             
         //TODO: Add suspending code here
-            
             currentStatus = .Suspended
             btnTitle = "Resume"
+            
+            self.request!.suspend()
             
         case .Suspended:
             print("Resume downloading...")
@@ -143,6 +161,7 @@ extension ViewController {
         //TODO: Add resuming code here
             currentStatus = .Downloading
             btnTitle = "Suspend"
+            self.request!.resume()
             
         case .NotStarted, .Cancelled:
             break
@@ -158,6 +177,9 @@ extension ViewController {
         switch currentStatus {
         case .Downloading, .Suspended:
         //TODO: Add cancel code here
+            
+            self.request!.cancel()
+            
             currentStatus = .Cancelled
             cancelBtn.isEnabled = false
             suspendOrResumeBtn.isEnabled = false
@@ -171,5 +193,81 @@ extension ViewController {
         }
     }
     
+    @IBAction func uploadFile(_ sender: UIButton) {
+        guard self.episodeUrl != nil else {
+            print("Does not have any downloaded file")
+            return
+        }
+        
+        print("Uploading \(self.episodeUrl!)")
+        
+        
+    }
     
+    
+}
+
+extension ViewController {
+    private func displayNetworkAlert(errorMessage: String,
+                                     data: Data? = nil,
+                                     destination: DownloadRequest.DownloadFileDestination? = nil) {
+        let alert = UIAlertController(
+            title: "Network error",
+            message: errorMessage,
+            preferredStyle: .alert)
+        
+        if let data = data {
+            alert.addAction(UIAlertAction(title: "Resume",
+                                          style: .default,
+                                          handler: { _ in
+                                            // Resume download here
+                                            print("Resume downloading...")
+                                            if let destination = destination {
+                                                do {
+                                                    Alamofire.download(resumingWith: data, to: destination)
+                                                        .downloadProgress{ progress  in
+                                                            DispatchQueue.main.async {
+                                                                self.downloadProgress.progress = Float(progress.fractionCompleted)
+                                                                self.dowloadProgressLabel.text = "\(Float(progress.fractionCompleted))"
+                                                            }
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel",
+                                          style: .cancel,
+                                          handler: { _ in
+                                            // Reset the app
+                                            print("Cancel downloading...")
+                                            self.restoreDownloadUserInterface()
+
+            }))
+            
+        }
+        else {
+            alert.addAction(UIAlertAction(title: "OK",
+                                          style: .default,
+                                          handler: { _ in
+                                            // Cancel download here
+                                            print("Cancel downloading...")
+                                            self.restoreDownloadUserInterface()
+            }))
+        }
+        
+        self.present(alert,
+                     animated: true, completion: nil)
+    }
+    
+    func restoreDownloadUserInterface() {
+        self.downloadUrl.text = nil
+        self.downloadProgress.progress = 0
+        self.dowloadProgressLabel.text = "Progress: "
+        self.beginBtn.isEnabled = false
+        self.suspendOrResumeBtn.isEnabled = false
+        self.cancelBtn.isEnabled = false
+    }
 }
