@@ -61,10 +61,17 @@
                                     <action selector="gameBeginWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NBr-sD-zpI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJv-vp-cXD">
+                                <rect key="frame" x="232.5" y="113.5" width="22" height="22"/>
+                                <connections>
+                                    <segue destination="f8z-Cj-pWd" kind="presentation" modalTransitionStyle="coverVertical" id="8dL-5C-1cD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LO5-aA-yZ8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4nm-54-1XX"/>
+                            <constraint firstItem="XJv-vp-cXD" firstAttribute="leading" secondItem="LO5-aA-yZ8" secondAttribute="trailing" constant="5" id="Ha0-0a-Thd"/>
                             <constraint firstItem="alG-5c-1eY" firstAttribute="top" secondItem="9v8-5n-IfX" secondAttribute="bottom" constant="8" id="MKk-TM-ILY"/>
                             <constraint firstItem="0Uq-z9-kcS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MOv-WS-3YF"/>
                             <constraint firstItem="8j9-qw-Oer" firstAttribute="top" secondItem="LO5-aA-yZ8" secondAttribute="bottom" constant="8" id="Qea-MC-WQx"/>
@@ -73,6 +80,7 @@
                             <constraint firstItem="8j9-qw-Oer" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZrH-0w-tgg"/>
                             <constraint firstItem="alG-5c-1eY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cI1-cc-Esm"/>
                             <constraint firstItem="17R-n5-Gpq" firstAttribute="top" secondItem="8j9-qw-Oer" secondAttribute="bottom" constant="47" id="iPG-Hg-tXi"/>
+                            <constraint firstItem="8j9-qw-Oer" firstAttribute="top" secondItem="XJv-vp-cXD" secondAttribute="bottom" constant="8" id="j2l-fW-yQo"/>
                             <constraint firstItem="17R-n5-Gpq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yCZ-0D-SEC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0Uq-z9-kcS" secondAttribute="bottom" constant="20" id="yWy-Wc-TPt"/>
                             <constraint firstItem="9v8-5n-IfX" firstAttribute="top" secondItem="17R-n5-Gpq" secondAttribute="bottom" constant="38" id="zPD-DT-3RK"/>
@@ -85,6 +93,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="-4.0479760119940034"/>
+        </scene>
+        <!--About Dora View Controller-->
+        <scene sceneID="0W9-c9-8BT">
+            <objects>
+                <viewController id="f8z-Cj-pWd" customClass="AboutDoraViewController" customModule="RockScissorPaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pdW-B8-JgC"/>
+                        <viewControllerLayoutGuide type="bottom" id="r8L-6b-N1d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="goJ-ar-fUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DoraAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="kkk-ef-x4a">
+                                <rect key="frame" x="62.5" y="30" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="LE7-Wv-vio"/>
+                                    <constraint firstAttribute="height" constant="250" id="uvX-v2-T9W"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEV-ne-4a7">
+                                <rect key="frame" x="170.5" y="627" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backToMain:" destination="f8z-Cj-pWd" eventType="touchUpInside" id="P4i-28-qbz"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9x2-c1-wbc">
+                                <rect key="frame" x="0.0" y="300" width="375" height="317"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9x2-c1-wbc" secondAttribute="trailing" id="GWb-JV-eob"/>
+                            <constraint firstItem="kkk-ef-x4a" firstAttribute="centerX" secondItem="goJ-ar-fUY" secondAttribute="centerX" id="Luh-nD-DgK"/>
+                            <constraint firstItem="9x2-c1-wbc" firstAttribute="top" secondItem="kkk-ef-x4a" secondAttribute="bottom" constant="20" id="SKk-cW-trT"/>
+                            <constraint firstItem="r8L-6b-N1d" firstAttribute="top" secondItem="HEV-ne-4a7" secondAttribute="bottom" constant="10" id="fTv-Tw-Nus"/>
+                            <constraint firstItem="HEV-ne-4a7" firstAttribute="centerX" secondItem="goJ-ar-fUY" secondAttribute="centerX" id="fYR-PS-4NV"/>
+                            <constraint firstItem="9x2-c1-wbc" firstAttribute="leading" secondItem="goJ-ar-fUY" secondAttribute="leading" id="hXi-Du-Hfg"/>
+                            <constraint firstItem="HEV-ne-4a7" firstAttribute="top" secondItem="9x2-c1-wbc" secondAttribute="bottom" constant="10" id="tm7-vR-PMS"/>
+                            <constraint firstItem="kkk-ef-x4a" firstAttribute="top" secondItem="pdW-B8-JgC" secondAttribute="bottom" constant="10" id="wcP-Ko-aPu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="HEV-ne-4a7" id="ssS-W7-cK3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ju-Ue-WU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1549.5999999999999" y="-421.43928035982015"/>
         </scene>
         <!--About Us View Controller-->
         <scene sceneID="hSw-ob-fVw">
@@ -127,7 +187,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j44-hk-EmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="484"/>
+            <point key="canvasLocation" x="1550" y="448"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DoraAvatar" width="250" height="250"/>
+    </resources>
 </document>

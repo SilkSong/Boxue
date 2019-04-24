@@ -14,6 +14,7 @@
 		681DF6E21C33C4030051266E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681DF6E01C33C4030051266E /* LaunchScreen.storyboard */; };
 		681DF6EE1C360CF70051266E /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681DF6ED1C360CF70051266E /* AboutUsViewController.swift */; };
 		681DF6F41C3617C50051266E /* aboutus.html in Resources */ = {isa = PBXBuildFile; fileRef = 681DF6F31C3617C50051266E /* aboutus.html */; };
+		E4257165226F6F280071AACC /* AboutDoraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4257164226F6F280071AACC /* AboutDoraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		681DF6E31C33C4030051266E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		681DF6ED1C360CF70051266E /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		681DF6F31C3617C50051266E /* aboutus.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = aboutus.html; sourceTree = "<group>"; };
+		E4257164226F6F280071AACC /* AboutDoraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDoraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				681DF6D91C33C4030051266E /* ViewController.swift */,
 				681DF6ED1C360CF70051266E /* AboutUsViewController.swift */,
 				681DF6DB1C33C4030051266E /* Main.storyboard */,
+				E4257164226F6F280071AACC /* AboutDoraViewController.swift */,
 				681DF6DE1C33C4030051266E /* Assets.xcassets */,
 				681DF6E01C33C4030051266E /* LaunchScreen.storyboard */,
 				681DF6E31C33C4030051266E /* Info.plist */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4257165226F6F280071AACC /* AboutDoraViewController.swift in Sources */,
 				681DF6DA1C33C4030051266E /* ViewController.swift in Sources */,
 				681DF6EE1C360CF70051266E /* AboutUsViewController.swift in Sources */,
 				681DF6D81C33C4030051266E /* AppDelegate.swift in Sources */,
