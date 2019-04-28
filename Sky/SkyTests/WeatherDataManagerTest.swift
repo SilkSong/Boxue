@@ -1,22 +1,24 @@
 //
-//  SkyTests.swift
+//  WeatherDataManagerTest.swift
 //  SkyTests
 //
-//  Created by Song Zixin on 2019/4/27.
+//  Created by Song Zixin on 2019/4/28.
 //  Copyright © 2019 SilkSong. All rights reserved.
 //
 
 import XCTest
 @testable import Sky
 
-class SkyTests: XCTestCase {
+class WeatherDataManagerTest: XCTestCase {
 
     override func setUp() {
+        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
     func testExample() {
