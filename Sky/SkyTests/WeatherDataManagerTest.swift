@@ -34,6 +34,18 @@ class WeatherDataManagerTest: XCTestCase {
         XCTAssert(session.sessionDataTask.isResumeCalled)
     }
     
+    func test_weatherDataAt_gets_data() {
+        let expect = expectation(description: "Loading data from \(API.authenticatedUrl)")
+        var data: WeatherData? = nil
+
+        WeatherDataManager.shared.weatherDataAt(latitude: 52, longitude: 100, completion: { (response, error) in
+            data = response
+            expect.fulfill()
+        })
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssertNil(data)
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

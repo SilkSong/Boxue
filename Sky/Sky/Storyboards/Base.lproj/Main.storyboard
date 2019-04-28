@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,14 +49,23 @@
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="99.400299850074973"/>
         </scene>
-        <!--View Controller-->
+        <!--Current Weather View Controller-->
         <scene sceneID="bac-p5-pXj">
             <objects>
-                <viewController id="5Bk-6Z-wAY" sceneMemberID="viewController">
+                <viewController id="5Bk-6Z-wAY" customClass="CurrentWeatherViewController" customModule="Sky" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gFZ-je-Z0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="255.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Lco-4h-m85">
+                                <rect key="frame" x="177.5" y="118" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebs-Ng-YG5">
+                                <rect key="frame" x="8" y="117.5" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-Rd-87h">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="255.5"/>
                                 <subviews>
@@ -75,6 +84,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Default Title" image="LocationBtn"/>
+                                        <connections>
+                                            <action selector="locationButtonPressed:" destination="5Bk-6Z-wAY" eventType="touchUpInside" id="Lv7-f2-rQM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-Tg-a8M">
                                         <rect key="frame" x="323" y="8" width="44" height="44"/>
@@ -83,6 +95,9 @@
                                             <constraint firstAttribute="height" constant="44" id="yZL-2b-djq"/>
                                         </constraints>
                                         <state key="normal" title="Default Title" image="Setting"/>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="5Bk-6Z-wAY" eventType="touchUpInside" id="gbF-s7-MdP"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beijing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hxq-WQ-AY0">
                                         <rect key="frame" x="60" y="7.5" width="255" height="45"/>
@@ -142,13 +157,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cRP-Wb-8fE" firstAttribute="trailing" secondItem="Ebs-Ng-YG5" secondAttribute="trailing" constant="8" id="1mw-2r-fPl"/>
+                            <constraint firstItem="Lco-4h-m85" firstAttribute="centerX" secondItem="gFZ-je-Z0g" secondAttribute="centerX" id="6g6-Kl-Kdw"/>
                             <constraint firstItem="cRP-Wb-8fE" firstAttribute="trailing" secondItem="Qab-Rd-87h" secondAttribute="trailing" id="8tM-ZL-AZC"/>
+                            <constraint firstItem="Lco-4h-m85" firstAttribute="centerY" secondItem="gFZ-je-Z0g" secondAttribute="centerY" id="HSZ-gy-3G6"/>
+                            <constraint firstItem="Ebs-Ng-YG5" firstAttribute="leading" secondItem="cRP-Wb-8fE" secondAttribute="leading" constant="8" id="I1q-NQ-l8b"/>
                             <constraint firstItem="Qab-Rd-87h" firstAttribute="leading" secondItem="cRP-Wb-8fE" secondAttribute="leading" id="KlP-zC-c1M"/>
                             <constraint firstItem="Qab-Rd-87h" firstAttribute="top" secondItem="cRP-Wb-8fE" secondAttribute="top" id="aba-Ad-GsI"/>
                             <constraint firstItem="cRP-Wb-8fE" firstAttribute="bottom" secondItem="Qab-Rd-87h" secondAttribute="bottom" id="wih-gY-Kor"/>
+                            <constraint firstItem="Ebs-Ng-YG5" firstAttribute="centerY" secondItem="gFZ-je-Z0g" secondAttribute="centerY" id="z9p-ZL-rBA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cRP-Wb-8fE"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="Lco-4h-m85" id="NO6-Ma-7mw"/>
+                        <outlet property="dateLabel" destination="JlR-H4-Vne" id="j0Y-Ju-Yfn"/>
+                        <outlet property="humidityLabel" destination="fDx-zc-qfZ" id="Yus-p1-kNH"/>
+                        <outlet property="loadingFailedLabel" destination="Ebs-Ng-YG5" id="6uH-Ti-LQq"/>
+                        <outlet property="locationLabel" destination="Hxq-WQ-AY0" id="ts3-jX-dHD"/>
+                        <outlet property="summaryLabel" destination="XOk-qV-jPu" id="jr7-fH-0t8"/>
+                        <outlet property="temperatureLabel" destination="M7S-8h-jx3" id="3m9-XV-z9d"/>
+                        <outlet property="weatherContainerView" destination="gFZ-je-Z0g" id="OjH-So-4eQ"/>
+                        <outlet property="weatherIcon" destination="w16-oH-SLe" id="jLA-Vh-L4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIr-QQ-JCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
