@@ -10,7 +10,10 @@ import Foundation
 @testable import Sky
 
 class MockURLSession: URLSessionProtocol {
-    func dataTask(with request: URLRequest, completionHandler: @escaping dataTaskHandler) -> URLSessionDataTask {
-        return URLSessionDataTask()
+    
+    var sessionDataTask = MockURLSessionDataTask()
+    
+    func dataTask(with request: URLRequest, completionHandler: @escaping dataTaskHandler) -> URLSessionDataTaskProtocol {
+        return sessionDataTask
     }
 }
