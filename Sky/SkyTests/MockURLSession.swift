@@ -11,9 +11,21 @@ import Foundation
 
 class MockURLSession: URLSessionProtocol {
     
+    enum DataManagerError: Error {
+        case failedRequest
+        case invalidResponse
+        case unknown
+    }
+
+    
+    var responseData: Data?
+    var responseHeader: HTTPURLResponse?
+    var responseError: Error?
+    
     var sessionDataTask = MockURLSessionDataTask()
     
     func dataTask(with request: URLRequest, completionHandler: @escaping dataTaskHandler) -> URLSessionDataTaskProtocol {
+        completionHandler(responseData, responseHeader, responseError)
         return sessionDataTask
     }
 }
