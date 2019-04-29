@@ -9,7 +9,7 @@
 import UIKit
 
 final class WeatherDataManager {
-    
+
     enum DataManagerError: Error {
         case failedRequest
         case invalidResponse
@@ -77,6 +77,5 @@ final class WeatherDataManager {
         }
     }
     
-    
-
 }
+

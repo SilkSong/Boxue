@@ -12,7 +12,6 @@
 		E4143A9C22743A5F00C942CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4143A9A22743A5F00C942CF /* Main.storyboard */; };
 		E4143A9E22743A6100C942CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4143A9D22743A6100C942CF /* Assets.xcassets */; };
 		E4143AA122743A6100C942CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4143A9F22743A6100C942CF /* LaunchScreen.storyboard */; };
-		E4143AB722743A6100C942CF /* SkyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4143AB622743A6100C942CF /* SkyUITests.swift */; };
 		E45FB50E22744F7500C48EB0 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FB50D22744F7500C48EB0 /* Configuration.swift */; };
 		E45FB5112274503D00C48EB0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FB5102274503D00C48EB0 /* Location.swift */; };
 		E45FB513227450FA00C48EB0 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45FB512227450FA00C48EB0 /* WeatherData.swift */; };
@@ -29,6 +28,9 @@
 		E4F4624A2275CF3400195CE8 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F462492275CF3400195CE8 /* Double.swift */; };
 		E4F4624F2276E8F800195CE8 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4624E2276E8F800195CE8 /* CurrentWeatherViewModel.swift */; };
 		E4F462512276EA4C00195CE8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F462502276EA4C00195CE8 /* UIImage.swift */; };
+		E4F46255227721F600195CE8 /* CurrentWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F46254227721F600195CE8 /* CurrentWeatherUITests.swift */; };
+		E4F46257227735EB00195CE8 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F46256227735EB00195CE8 /* WeekWeatherViewController.swift */; };
+		E4F4625A2277384E00195CE8 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +61,6 @@
 		E4143AA722743A6100C942CF /* SkyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4143AAD22743A6100C942CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4143AB222743A6100C942CF /* SkyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4143AB622743A6100C942CF /* SkyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyUITests.swift; sourceTree = "<group>"; };
 		E4143AB822743A6100C942CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E45FB50D22744F7500C48EB0 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		E45FB5102274503D00C48EB0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -77,6 +78,9 @@
 		E4F462492275CF3400195CE8 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E4F4624E2276E8F800195CE8 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrentWeatherViewModel.swift; path = Sky/Extensions/CurrentWeatherViewModel.swift; sourceTree = SOURCE_ROOT; };
 		E4F462502276EA4C00195CE8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E4F46254227721F600195CE8 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
+		E4F46256227735EB00195CE8 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekWeatherViewController.swift; path = Sky/ViewControllers/WeatherViewControllers/WeekWeatherViewController.swift; sourceTree = SOURCE_ROOT; };
+		E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekWeatherTableViewCell.swift; path = ../../../../../../../Documents/WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +159,8 @@
 		E4143AB522743A6100C942CF /* SkyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E4143AB622743A6100C942CF /* SkyUITests.swift */,
 				E4143AB822743A6100C942CF /* Info.plist */,
+				E4F46254227721F600195CE8 /* CurrentWeatherUITests.swift */,
 			);
 			path = SkyUITests;
 			sourceTree = "<group>";
@@ -251,8 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				E4F4624C2276E85F00195CE8 /* WeatherViewControllers */,
-				E4F462452275CB4A00195CE8 /* WeatherViewController.swift */,
-				E4F462472275CD1500195CE8 /* CurrentWeatherViewController.swift */,
 				E4143AC722743A9800C942CF /* RootViewController */,
 			);
 			path = ViewControllers;
@@ -261,6 +263,10 @@
 		E4F4624C2276E85F00195CE8 /* WeatherViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4F46256227735EB00195CE8 /* WeekWeatherViewController.swift */,
+				E4F462452275CB4A00195CE8 /* WeatherViewController.swift */,
+				E4F462472275CD1500195CE8 /* CurrentWeatherViewController.swift */,
+				E4F462582277382A00195CE8 /* TableViewCells */,
 				E4F4624D2276E8D700195CE8 /* ViewModels */,
 			);
 			path = WeatherViewControllers;
@@ -272,6 +278,14 @@
 				E4F4624E2276E8F800195CE8 /* CurrentWeatherViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E4F462582277382A00195CE8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +364,7 @@
 					};
 					E4143AB122743A6100C942CF = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = E4143A9222743A5F00C942CF;
 					};
 				};
@@ -411,6 +426,8 @@
 				E48B80692275A83A007AD4EC /* URLSessionDataTaskProtocol.swift in Sources */,
 				E48B806B2275A861007AD4EC /* URLSessionDataTask.swift in Sources */,
 				E4F4624A2275CF3400195CE8 /* Double.swift in Sources */,
+				E4F46257227735EB00195CE8 /* WeekWeatherViewController.swift in Sources */,
+				E4F4625A2277384E00195CE8 /* WeekWeatherTableViewCell.swift in Sources */,
 				E48B806522759BB4007AD4EC /* URLSession.swift in Sources */,
 				E4F462512276EA4C00195CE8 /* UIImage.swift in Sources */,
 				E45FB50E22744F7500C48EB0 /* Configuration.swift in Sources */,
@@ -438,7 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4143AB722743A6100C942CF /* SkyUITests.swift in Sources */,
+				E4F46255227721F600195CE8 /* CurrentWeatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HYUS89RVGE;
 				INFOPLIST_FILE = SkyUITests/Info.plist;
@@ -688,6 +706,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = silksong.me.SkyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Sky;
@@ -698,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HYUS89RVGE;
 				INFOPLIST_FILE = SkyUITests/Info.plist;
