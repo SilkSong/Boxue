@@ -31,6 +31,11 @@
 		E4F46255227721F600195CE8 /* CurrentWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F46254227721F600195CE8 /* CurrentWeatherUITests.swift */; };
 		E4F46257227735EB00195CE8 /* WeekWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F46256227735EB00195CE8 /* WeekWeatherViewController.swift */; };
 		E4F4625A2277384E00195CE8 /* WeekWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */; };
+		E4F4625C22773DEA00195CE8 /* ForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4625B22773DEA00195CE8 /* ForecastData.swift */; };
+		E4F4625E22773F4900195CE8 /* WeekWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4625D22773F4900195CE8 /* WeekWeatherViewModel.swift */; };
+		E4F462612277752600195CE8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F462602277752600195CE8 /* UserDefaults.swift */; };
+		E4F4626422777DEC00195CE8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4626322777DEC00195CE8 /* SettingsViewController.swift */; };
+		E4F4626722777E3E00195CE8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F4626622777E3E00195CE8 /* SettingsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,11 @@
 		E4F46254227721F600195CE8 /* CurrentWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherUITests.swift; sourceTree = "<group>"; };
 		E4F46256227735EB00195CE8 /* WeekWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekWeatherViewController.swift; path = Sky/ViewControllers/WeatherViewControllers/WeekWeatherViewController.swift; sourceTree = SOURCE_ROOT; };
 		E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekWeatherTableViewCell.swift; path = ../../../../../../../Documents/WeekWeatherTableViewCell.swift; sourceTree = "<group>"; };
+		E4F4625B22773DEA00195CE8 /* ForecastData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastData.swift; sourceTree = "<group>"; };
+		E4F4625D22773F4900195CE8 /* WeekWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherViewModel.swift; sourceTree = "<group>"; };
+		E4F462602277752600195CE8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		E4F4626322777DEC00195CE8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E4F4626622777E3E00195CE8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +229,7 @@
 			children = (
 				E45FB5102274503D00C48EB0 /* Location.swift */,
 				E45FB512227450FA00C48EB0 /* WeatherData.swift */,
+				E4F4625B22773DEA00195CE8 /* ForecastData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 				E48B806A2275A861007AD4EC /* URLSessionDataTask.swift */,
 				E4F462492275CF3400195CE8 /* Double.swift */,
 				E4F462502276EA4C00195CE8 /* UIImage.swift */,
+				E4F462602277752600195CE8 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +266,7 @@
 		E4F4624B2276B45500195CE8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E4F4626222777DCE00195CE8 /* SettingsViewController */,
 				E4F4624C2276E85F00195CE8 /* WeatherViewControllers */,
 				E4143AC722743A9800C942CF /* RootViewController */,
 			);
@@ -276,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F4624E2276E8F800195CE8 /* CurrentWeatherViewModel.swift */,
+				E4F4625D22773F4900195CE8 /* WeekWeatherViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -284,6 +298,23 @@
 			isa = PBXGroup;
 			children = (
 				E4F462592277384E00195CE8 /* WeekWeatherTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		E4F4626222777DCE00195CE8 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4626522777E2300195CE8 /* TableViewCells */,
+				E4F4626322777DEC00195CE8 /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		E4F4626522777E2300195CE8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E4F4626622777E3E00195CE8 /* SettingsTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -423,8 +454,11 @@
 			files = (
 				E48B8062227596E8007AD4EC /* URLSessionProtocol.swift in Sources */,
 				E45FB5162274522700C48EB0 /* WeatherDataManager.swift in Sources */,
+				E4F4626422777DEC00195CE8 /* SettingsViewController.swift in Sources */,
 				E48B80692275A83A007AD4EC /* URLSessionDataTaskProtocol.swift in Sources */,
+				E4F4625E22773F4900195CE8 /* WeekWeatherViewModel.swift in Sources */,
 				E48B806B2275A861007AD4EC /* URLSessionDataTask.swift in Sources */,
+				E4F4626722777E3E00195CE8 /* SettingsTableViewCell.swift in Sources */,
 				E4F4624A2275CF3400195CE8 /* Double.swift in Sources */,
 				E4F46257227735EB00195CE8 /* WeekWeatherViewController.swift in Sources */,
 				E4F4625A2277384E00195CE8 /* WeekWeatherTableViewCell.swift in Sources */,
@@ -435,6 +469,8 @@
 				E4143A9922743A5F00C942CF /* RootViewController.swift in Sources */,
 				E45FB5112274503D00C48EB0 /* Location.swift in Sources */,
 				E4143A9722743A5F00C942CF /* AppDelegate.swift in Sources */,
+				E4F4625C22773DEA00195CE8 /* ForecastData.swift in Sources */,
+				E4F462612277752600195CE8 /* UserDefaults.swift in Sources */,
 				E4F462462275CB4A00195CE8 /* WeatherViewController.swift in Sources */,
 				E4F462482275CD1500195CE8 /* CurrentWeatherViewController.swift in Sources */,
 				E4F4624F2276E8F800195CE8 /* CurrentWeatherViewModel.swift in Sources */,

@@ -11,6 +11,10 @@ import CoreLocation
 
 class RootViewController: UIViewController {
     
+    @IBAction func unwindToRootViewController(segue: UIStoryboardSegue) {
+        
+    }
+
     //MARK: Properties
     private lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -28,7 +32,10 @@ class RootViewController: UIViewController {
     }
     
     var currentWeatherViewController: CurrentWeatherViewController!
+    var weekWeatherViewController: WeekWeatherViewController!
     private let segueCurrentWeather = "SegueCurrentWeather"
+    private let segueWeekWeather = "SegueWeekWeather"
+    private let segueSettings = "SegueSettings"
 
     //MARK: UIView Life Cycle
     override func viewDidLoad() {
@@ -37,33 +44,12 @@ class RootViewController: UIViewController {
         setupActiveNotification()
     }
     
-    
-    //MARK: Main Function
+    //MARK: Functional methods
     @objc func applicationDidBecomeActive(notification: Notification) {
         print("Ask for user location")
         requestLocation()
     }
     
-    //MARK: Segue Performed
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else {
-            return
-        }
-        
-        switch identifier {
-        case segueCurrentWeather:
-            guard let destination = segue.destination as? CurrentWeatherViewController else {
-                fatalError("Invalid destination view controller!")
-            }
-            destination.delegate = self
-            destination.viewModel = CurrentWeatherViewModel()
-            currentWeatherViewController = destination
-        default:
-            break
-        }
-    }
-    
-    //MARK: Functional methods
     private func setupActiveNotification() {
         NotificationCenter.default.addObserver(
             self,
@@ -115,12 +101,45 @@ class RootViewController: UIViewController {
             } else if let response = response {
                 //Todo: Notify CurrentWeatherViewController
                 self.currentWeatherViewController.viewModel?.weather = response
+                self.weekWeatherViewController.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
             }
         })
     }
-
+    
+    
+    //MARK: Segue Performed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            return
+        }
+        
+        switch identifier {
+        case segueCurrentWeather:
+            guard let destination = segue.destination as? CurrentWeatherViewController else {
+                fatalError("Invalid destination view controller!")
+            }
+            destination.delegate = self
+            destination.viewModel = CurrentWeatherViewModel()
+            currentWeatherViewController = destination
+        case segueWeekWeather:
+            guard let destination = segue.destination as? WeekWeatherViewController else {
+                fatalError("Invalid destination view controller")
+            }
+            weekWeatherViewController = destination
+        case segueSettings:
+            guard let navigationController = segue.destination as? UINavigationController else {
+                fatalError("Invalid destination view controller!")
+            }
+            guard let destination = navigationController.topViewController as? SettingsViewController else {
+                fatalError("Invalid destination view controller")
+            }
+            
+            destination.delegate = self
+        default:
+            break
+        }
+    }
 }
-
 
 extension RootViewController: CLLocationManagerDelegate {
     
@@ -153,6 +172,21 @@ extension RootViewController: CurrentWeatherViewControllerDelegate {
     }
     
     func settingsButtonPressed(controller: CurrentWeatherViewController) {
-        print("Open Settings")
+        performSegue(withIdentifier: segueSettings, sender: self)
+    }
+}
+
+extension RootViewController: SettingsViewControllerDelegate {
+    
+    private func reloadUI() {
+        currentWeatherViewController.updateView()
+        weekWeatherViewController.updateView()
+    }
+    func controllerDidChangeTimeMode(controller: SettingsViewController) {
+        reloadUI()
+    }
+    
+    func controllerDidChangeTemperatureMode(controller: SettingsViewController) {
+        reloadUI()
     }
 }

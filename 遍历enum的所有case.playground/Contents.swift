@@ -21,3 +21,19 @@ extension Optional: CaseIterable where Wrapped: CaseIterable {
         return Wrapped.allCases.map { $0 } + [nil]
     }
 }
+
+enum Section: Int {
+    case date
+    case temperature
+    
+    var numberOfRows: Int {
+        return 2
+    }
+    
+    static var count: Int {
+        return Section.temperature.rawValue + 1
+    }
+}
+
+print(Section.date.rawValue)
+print(Section.count)
