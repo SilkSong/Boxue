@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages View Controller-->
+        <scene sceneID="7MM-of-jgj">
+            <objects>
+                <viewController id="ObA-dk-sSI" customClass="MessagesViewController" customModule="DoraMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="A9h-Fm-bbZ">
+                                <rect key="frame" x="0.0" y="30" width="320" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="8HF-3X-KeW"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Eat"/>
+                                    <segment title="Activity"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeIconCollection:" destination="Zhs-FM-qM3" eventType="valueChanged" id="6sX-fA-82U"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYj-SB-j63">
+                                <rect key="frame" x="0.0" y="68" width="320" height="460"/>
+                                <connections>
+                                    <segue destination="Vbl-8W-DXj" kind="embed" id="zSp-BG-6yQ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MYj-SB-j63" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="Lll-u8-lKb"/>
+                            <constraint firstItem="A9h-Fm-bbZ" firstAttribute="leading" secondItem="LDy-ih-0nr" secondAttribute="leading" id="XuH-Cq-7z5"/>
+                            <constraint firstItem="MYj-SB-j63" firstAttribute="top" secondItem="A9h-Fm-bbZ" secondAttribute="bottom" constant="10" id="ePY-WQ-3It"/>
+                            <constraint firstItem="A9h-Fm-bbZ" firstAttribute="top" secondItem="LDy-ih-0nr" secondAttribute="top" constant="10" id="fUs-kX-tTB"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="MYj-SB-j63" secondAttribute="trailing" id="nOh-hM-vhe"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="trailing" secondItem="A9h-Fm-bbZ" secondAttribute="trailing" id="srW-M3-HHz"/>
+                            <constraint firstItem="LDy-ih-0nr" firstAttribute="bottom" secondItem="MYj-SB-j63" secondAttribute="bottom" id="vUV-pj-vn0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LDy-ih-0nr"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="528"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zhs-FM-qM3" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="119"/>
+        </scene>
+        <!--Dora Browser View Controller-->
+        <scene sceneID="9Wk-jM-lBi">
+            <objects>
+                <viewController id="Vbl-8W-DXj" customClass="DoraBrowserViewController" customModule="DoraMessage_MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hIc-bg-q6A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmc-UD-gnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771" y="127"/>
+        </scene>
+    </scenes>
+</document>
