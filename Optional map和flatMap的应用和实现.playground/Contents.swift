@@ -21,6 +21,11 @@ extension Optional {
     }
 }
 
+let curry: String? = "curry"
+
+let CURRY = curry.myMap { $0.uppercased() }
+print(CURRY)
+
 // Optional.flatMap 的实现（ 基于 if let)
 
 extension Optional {
@@ -32,6 +37,8 @@ extension Optional {
     }
 }
 
+let Curry = curry.myFlatMap { $0.uppercased() }
+print(Curry)
 
 let numbers = [1, 2, 3, 4]
 //let sum = numbers.reduce(0, + )
