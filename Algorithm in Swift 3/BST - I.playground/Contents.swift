@@ -12,6 +12,39 @@ open class TreeNode<T: Comparable> {
         self.left = left
         self.right = right
     }
+    
+    public var isRoot: Bool {
+        return parent == nil
+    }
+    
+    public var isLeaf: Bool {
+        return left == nil && right == nil
+    }
+    
+    public var isLeftChild: Bool {
+        return parent?.left === self
+    }
+    
+    public var isRightChild: Bool {
+        return parent?.right === self
+    }
+    
+    public var hasSingleLeftChild: Bool {
+        return left != nil && right == nil
+    }
+    
+    public var hasSingleRightChild: Bool {
+        return left == nil && right != nil
+    }
+    
+    public var hasAnyChild: Bool {
+        return left != nil || right != nil
+    }
+    
+    public var hasBothChild: Bool {
+        return left != nil && right != nil
+    }
+    
 
 }
 
