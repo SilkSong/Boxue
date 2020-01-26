@@ -33,16 +33,17 @@ func SelectionSortOf<T: Comparable>(_ coll: Array<T>, byCriteria: Criteria<T> = 
         if (candidateIndex != x) {
             result.swapAt(candidateIndex, x)
         }
-    }
-    return result
+    }
+    return result
+
+    
 }
-
 //let array = [5,1,7,6]
 //let sorted = SelectionSortOf(array)
 //print(sorted)
 
 
-let a: Array<Int> = [1, 5, 7, 6]
+let a: Array<Int> = [1, 5, 7, 6]
 SelectionSortOf(a, byCriteria: <)
 print(a)
 

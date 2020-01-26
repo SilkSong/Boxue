@@ -9,6 +9,7 @@ let swift: String? = "swift"
 //SWIFT 若是一个常量
 
 let SWIFT = swift.map { $0.uppercased() }
+type(of: SWIFT)
 
 //自己对 Optional 的 map 进行实现
 

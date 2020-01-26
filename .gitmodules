@@ -1,0 +1,9 @@
+[submodule "RxSwift - step by step/四种Subject的基本用法/RxSwift"]
+	path = RxSwift - step by step/四种Subject的基本用法/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git
+[submodule "RxSwift - step by step/BasicTerm/RxSwift"]
+	path = RxSwift - step by step/BasicTerm/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git
+[submodule "RxSwift - step by step/FilterNumber/RxSwift"]
+	path = RxSwift - step by step/FilterNumber/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git

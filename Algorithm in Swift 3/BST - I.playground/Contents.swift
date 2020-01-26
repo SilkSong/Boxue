@@ -46,8 +46,6 @@ open class TreeNode<T: Comparable> {
     }
     
 
-}
-
 open class BST<T: Comparable> {
     fileprivate(set) public var root: TreeNode<T>?
     
