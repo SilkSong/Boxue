@@ -7,3 +7,9 @@
 [submodule "RxSwift - step by step/FilterNumber/RxSwift"]
 	path = RxSwift - step by step/FilterNumber/RxSwift
 	url = https://github.com/ReactiveX/RxSwift.git
+[submodule "Reactive Programming in Swift/Understanding Observable/RxSwift"]
+	path = Reactive Programming in Swift/Understanding Observable/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git
+[submodule "Understanding Observable/RxSwift"]
+	path = Understanding Observable/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git

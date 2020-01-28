@@ -30,6 +30,11 @@ import Foundation
 //Subject 用法之 Variable (is deprecated in RxSwift 5)
 let relay = BehaviorRelay(value: "Hello, Swift")
 relay.accept("Goodbye, Swift")
+let sub1 = relay.subscribe {    
+    print("sub1: \($0)")
+}
+
+
 print(relay.value)
 
 

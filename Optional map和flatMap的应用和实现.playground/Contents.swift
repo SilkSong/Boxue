@@ -1,4 +1,4 @@
-import UIKit
+
 
 let swift: String? = "swift"
 //var SWIFT: String? = nil
@@ -25,7 +25,7 @@ extension Optional {
 let curry: String? = "curry"
 
 let CURRY = curry.myMap { $0.uppercased() }
-print(CURRY)
+//print(CURRY)
 
 // Optional.flatMap 的实现（ 基于 if let)
 
@@ -39,7 +39,7 @@ extension Optional {
 }
 
 let Curry = curry.myFlatMap { $0.uppercased() }
-print(Curry)
+//print(Curry)
 
 let numbers = [1, 2, 3, 4]
 //let sum = numbers.reduce(0, + )
@@ -88,14 +88,14 @@ episodes.filter { (_, duration) in duration > 100 }
     .sorted()
 
 
-infix operator !!
-infix operator !?
-
-func !!<T>(optional: T?, errorMsg: @autoclosure () -> String) -> T {
-    if let value = optional { return value }
-    fatalError(errorMsg())
-}
-
+//infix operator !!
+//infix operator !?
+//
+//func !!<T>(optional: T?, errorMsg: @autoclosure () -> String) -> T {
+//    if let value = optional { return value }
+//    fatalError(errorMsg())
+//}
+//
 
 
 //func !?<T: ExpressibleByStringLiteral>(optional: T?, nilDefault: @autoclosure () -> (errorMsg: String, value: T)) -> T {
@@ -104,20 +104,20 @@ func !!<T>(optional: T?, errorMsg: @autoclosure () -> String) -> T {
 //
 //}
 //
-var record = ["name": "11"]
+//var record = ["name": "11"]
 //record["type"] !? ("Do not have a key named type", "Free"）
 
-func !?<T: ExpressibleByStringLiteral>(
-    optional: T?,
-    nilDefault: @autoclosure () -> (errorMsg: String, value: T)) -> T {
-    
-    assert(optional != nil, nilDefault().errorMsg)
-    return optional ?? nilDefault().value
-}
-
-func !?(optional: Void?, errorMsg: @autoclosure () -> String) {
-    assert(optional != nil, errorMsg())
-}
+//func !?<T: ExpressibleByStringLiteral>(
+//    optional: T?,
+//    nilDefault: @autoclosure () -> (errorMsg: String, value: T)) -> T {
+//
+//    assert(optional != nil, nilDefault().errorMsg)
+//    return optional ?? nilDefault().value
+//}
+//
+//func !?(optional: Void?, errorMsg: @autoclosure () -> String) {
+//    assert(optional != nil, errorMsg())
+//}
 
 //record["type"]?
 //    .write(" account")
@@ -125,18 +125,18 @@ func !?(optional: Void?, errorMsg: @autoclosure () -> String) {
 
 //record["type"] !? ("Do not have a key named type", "Free")
 
-var eleven: Int! = 11
-type(of: eleven)
-
-var doubleValue = 4
-func double(_ i: inout Int) {
-    i = i * 2
-}
-
-double(&eleven)
-
-eleven
-
+//var eleven: Int! = 11
+//type(of: eleven)
+//
+//var doubleValue = 4
+//func double(_ i: inout Int) {
+//    i = i * 2
+//}
+//
+//double(&eleven)
+//
+//eleven
+//
 
 
 
