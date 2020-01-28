@@ -7,7 +7,34 @@
 //
 
 import RxSwift
+import RxCocoa
 import Foundation
+
+//let subject = ReplaySubject<String>.create(bufferSize: 2)
+//
+//let sub1 = subject.subscribe(onNext: {
+//    print("Sub1 - what happened: \($0)")
+//})
+//subject.onNext("Episode1 updated")
+//sub1.dispose()
+//
+//let sub2 = subject.subscribe(onNext: {
+//    print("Sub2 - what happened: \($0)")
+//})
+//
+//subject.onNext("Episode2 updated")
+//subject.onNext("Episode3 updated")
+//sub2.dispose()
+
+
+//Subject 用法之 Variable (is deprecated in RxSwift 5)
+let relay = BehaviorRelay(value: "Hello, Swift")
+relay.accept("Goodbye, Swift")
+print(relay.value)
+
+
+//let sub1 = stringVa
+
 
 //var evenNumberObservable = Observable.of("1","2","3","4","5","6","7","8").map { Int($0) }
 //    .filter {
@@ -70,23 +97,23 @@ import Foundation
 //subscription.dispose()
 
 
-enum CustomError: Error {
-    case somethingWrong
-}
-
-
-let customOb = Observable<Int>.create { observer in
-    observer.onNext(10)
-    
-    observer.onError(CustomError.somethingWrong)
-    observer.onNext(11)
-    
-    observer.onCompleted()
-    
-    return Disposables.create()
-}
-
-let disponseBag = DisposeBag()
+//enum CustomError: Error {
+//    case somethingWrong
+//}
+//
+//
+//let customOb = Observable<Int>.create { observer in
+//    observer.onNext(10)
+//
+//    observer.onError(CustomError.somethingWrong)
+//    observer.onNext(11)
+//
+//    observer.onCompleted()
+//
+//    return Disposables.create()
+//}
+//
+//let disponseBag = DisposeBag()
 
 //customOb.do (
 //    onNext: { print("Intercepted: \($0)") },
@@ -102,11 +129,11 @@ let disponseBag = DisposeBag()
 //    onDisposed: { print("Game over") }
 //).disposed(by: disponseBag)
 
-customOb.debug()
-.subscribe(
-    onNext: { print($0) },
-    onError: { print($0) },
-    onCompleted: { print("Completed") },
-    onDisposed: { print("Game over") }
-).disposed(by: disponseBag)
+//customOb.debug()
+//.subscribe(
+//    onNext: { print($0) },
+//    onError: { print($0) },
+//    onCompleted: { print("Completed") },
+//    onDisposed: { print("Game over") }
+//).disposed(by: disponseBag)
 
