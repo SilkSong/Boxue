@@ -49,12 +49,12 @@ class ViewController: UIViewController {
         }).disposed(by: self.bag)
         
         //Sign up Button
-//        Observable.combineLatest(emailObservable, passwordObservable, resultSelector: {
-//            $0 && $1
-//        }).subscribe(onNext: {
-//            self.register.isEnabled = $0
-//        })
-//        .disposed(by: bag)
+        Observable.combineLatest(emailObservable, passwordObservable, resultSelector: {
+            $0 && $1
+        }).subscribe(onNext: {
+            self.register.isEnabled = $0
+        })
+        .disposed(by: bag)
 
     }
     
