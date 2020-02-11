@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		72CC017AC45C4915A334ED05 /* Pods_RxNetworkDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BBB376EDC582F79FA09C9D /* Pods_RxNetworkDemo.framework */; };
+		E42388AB23EDA68C00B43064 /* RepositoryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42388AA23EDA68C00B43064 /* RepositoryInfoTableViewCell.swift */; };
+		E42388AD23EDA70200B43064 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42388AC23EDA70200B43064 /* RepositoryModel.swift */; };
+		E473024223EF044C00330C81 /* MyRxTableViewDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E473024123EF044C00330C81 /* MyRxTableViewDelegateProxy.swift */; };
 		E4D690DD23EC191300227F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D690DC23EC191300227F4F /* AppDelegate.swift */; };
 		E4D690DF23EC191300227F4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D690DE23EC191300227F4F /* SceneDelegate.swift */; };
 		E4D690E123EC191300227F4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D690E023EC191300227F4F /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 		88C4D0E7F9C12656D4E5A10C /* Pods-RxNetworkDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxNetworkDemo.release.xcconfig"; path = "Target Support Files/Pods-RxNetworkDemo/Pods-RxNetworkDemo.release.xcconfig"; sourceTree = "<group>"; };
 		97EDB4146FCD9963D65ECEA1 /* Pods-RxNetworkDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxNetworkDemo.debug.xcconfig"; path = "Target Support Files/Pods-RxNetworkDemo/Pods-RxNetworkDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E1BBB376EDC582F79FA09C9D /* Pods_RxNetworkDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxNetworkDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E42388AA23EDA68C00B43064 /* RepositoryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInfoTableViewCell.swift; sourceTree = "<group>"; };
+		E42388AC23EDA70200B43064 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		E473024123EF044C00330C81 /* MyRxTableViewDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTableViewDelegateProxy.swift; sourceTree = "<group>"; };
 		E4D690D923EC191300227F4F /* RxNetworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxNetworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4D690DC23EC191300227F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4D690DE23EC191300227F4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +54,6 @@
 				97EDB4146FCD9963D65ECEA1 /* Pods-RxNetworkDemo.debug.xcconfig */,
 				88C4D0E7F9C12656D4E5A10C /* Pods-RxNetworkDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +90,9 @@
 				E4D690DE23EC191300227F4F /* SceneDelegate.swift */,
 				E4D690E023EC191300227F4F /* ViewController.swift */,
 				E4D690E223EC191300227F4F /* Main.storyboard */,
+				E473024123EF044C00330C81 /* MyRxTableViewDelegateProxy.swift */,
+				E42388AC23EDA70200B43064 /* RepositoryModel.swift */,
+				E42388AA23EDA68C00B43064 /* RepositoryInfoTableViewCell.swift */,
 				E4D690E523EC191400227F4F /* Assets.xcassets */,
 				E4D690E723EC191400227F4F /* LaunchScreen.storyboard */,
 				E4D690EA23EC191400227F4F /* Info.plist */,
@@ -207,7 +215,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E473024223EF044C00330C81 /* MyRxTableViewDelegateProxy.swift in Sources */,
 				E4D690E123EC191300227F4F /* ViewController.swift in Sources */,
+				E42388AD23EDA70200B43064 /* RepositoryModel.swift in Sources */,
+				E42388AB23EDA68C00B43064 /* RepositoryInfoTableViewCell.swift in Sources */,
 				E4D690DD23EC191300227F4F /* AppDelegate.swift in Sources */,
 				E4D690DF23EC191300227F4F /* SceneDelegate.swift in Sources */,
 			);
