@@ -4,18 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ReactiveLogin.xcscheme_^#shared#^_</key>
+		<key>被绝大多数人误会了的inout参数 (Playground).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>E458D1E823E1A23B00070D84</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>
